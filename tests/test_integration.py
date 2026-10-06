@@ -40,8 +40,13 @@ def endpoint(tmp_path_factory):
     os.environ["PYCSW_ROOT"] = str(tmp)
     from pycsw.wsgi import application
     srv = make_server("127.0.0.1", 0, application, handler_class=Quiet)
+    url = f"http://127.0.0.1:{srv.server_port}/"
+    # OWSLib follows the operation URLs advertised in GetCapabilities. Advertise THIS
+    # server, otherwise requests would leak to whatever listens on the configured port
+    # (e.g. a dev server on :8000) and the tests would not be isolated.
+    cfg_path.write_text(cfg_path.read_text().replace("url=http://localhost:8000/csw", f"url={url}"))
     threading.Thread(target=srv.serve_forever, daemon=True).start()
-    yield f"http://127.0.0.1:{srv.server_port}/"
+    yield url
     srv.shutdown()
 
 
