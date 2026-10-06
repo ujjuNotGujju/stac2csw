@@ -1,0 +1,26 @@
+# 1) docker compose run --rm harvest-demo     # offline synthetic data, no credentials
+#    or  docker compose run --rm harvest-live # real Bhoonidhi (needs BHOONIDHI_USER/PASSWORD in .env)
+# 2) docker compose up -d csw                 # http://localhost:8000/csw
+services:
+  csw:
+    build: .
+    ports: ["8000:8000"]
+    volumes: ["./data:/app/data"]
+    restart: unless-stopped
+
+  harvest-demo:
+    build: .
+    profiles: ["tools"]
+    volumes: ["./data:/app/data"]
+    command: >
+      sh -c "stac2csw harvest --offline tests/fixtures --out /tmp/records --clean &&
+             stac2csw load --config config/pycsw.cfg --records /tmp/records --reset"
+
+  harvest-live:
+    build: .
+    profiles: ["tools"]
+    env_file: .env
+    volumes: ["./data:/app/data"]
+    command: >
+      sh -c "stac2csw harvest --out /tmp/records --clean --max-items ${MAX_ITEMS:-100} ${HARVEST_ARGS:-} &&
+             stac2csw load --config config/pycsw.cfg --records /tmp/records --reset"

@@ -1,0 +1,116 @@
+{
+ "collections": [
+  {
+   "type": "Collection",
+   "stac_version": "1.0.0",
+   "id": "EOS-06_OCM-GAC_Chlorophyll_8day_4km",
+   "title": "EOS-06_OCM-GAC_Chlorophyll_8day_4km (SYNTHETIC test fixture)",
+   "description": "SYNTHETIC test record standing in for collection EOS-06_OCM-GAC_Chlorophyll_8day_4km. Not real Bhoonidhi metadata.",
+   "license": "proprietary",
+   "extent": {
+    "spatial": {
+     "bbox": [
+      [
+       40,
+       -10,
+       110,
+       30
+      ]
+     ]
+    },
+    "temporal": {
+     "interval": [
+      [
+       "2022-11-26T00:00:00Z",
+       null
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "type": "Collection",
+   "stac_version": "1.0.0",
+   "id": "CartoSat-1_PAN_CartoDEM_30m",
+   "title": "CartoSat-1_PAN_CartoDEM_30m (SYNTHETIC test fixture)",
+   "description": "SYNTHETIC test record standing in for collection CartoSat-1_PAN_CartoDEM_30m. Not real Bhoonidhi metadata.",
+   "license": "proprietary",
+   "extent": {
+    "spatial": {
+     "bbox": [
+      [
+       68,
+       6,
+       98,
+       37
+      ]
+     ]
+    },
+    "temporal": {
+     "interval": [
+      [
+       "2011-01-01T00:00:00Z",
+       null
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "type": "Collection",
+   "stac_version": "1.0.0",
+   "id": "Novasar-1_AIS",
+   "title": "Novasar-1_AIS (SYNTHETIC test fixture)",
+   "description": "SYNTHETIC test record standing in for collection Novasar-1_AIS. Not real Bhoonidhi metadata.",
+   "license": "proprietary",
+   "extent": {
+    "spatial": {
+     "bbox": [
+      [
+       60,
+       -5,
+       100,
+       25
+      ]
+     ]
+    },
+    "temporal": {
+     "interval": [
+      [
+       "2022-01-01T00:00:00Z",
+       null
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "type": "Collection",
+   "stac_version": "1.0.0",
+   "id": "ResourceSat-2_LISS3_L2",
+   "title": "ResourceSat-2_LISS3_L2 (SYNTHETIC test fixture)",
+   "description": "SYNTHETIC test record standing in for collection ResourceSat-2_LISS3_L2. Not real Bhoonidhi metadata.",
+   "license": "proprietary",
+   "extent": {
+    "spatial": {
+     "bbox": [
+      [
+       68,
+       6,
+       98,
+       37
+      ]
+     ]
+    },
+    "temporal": {
+     "interval": [
+      [
+       "2011-04-20T00:00:00Z",
+       null
+      ]
+     ]
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,925 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "EOS-06_OCM-GAC_Chlorophyll_8day_4km",
+   "id": "SYNTH_EOS-06_001",
+   "bbox": [
+    60.7253,
+    -4.8711,
+    65.7253,
+    0.1289
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       60.72529694932239,
+       -4.871128086566935
+      ],
+      [
+       65.7252969493224,
+       -4.871128086566935
+      ],
+      [
+       65.7252969493224,
+       0.12887191343306537
+      ],
+      [
+       60.72529694932239,
+       0.12887191343306537
+      ],
+      [
+       60.72529694932239,
+       -4.871128086566935
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-02-04T05:30:00Z",
+    "platform": "EOS-06",
+    "description": "SYNTHETIC item 1 for EOS-06_OCM-GAC_Chlorophyll_8day_4km."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "EOS-06_OCM-GAC_Chlorophyll_8day_4km",
+   "id": "SYNTH_EOS-06_002",
+   "bbox": [
+    81.6598,
+    -7.5372,
+    86.6598,
+    -2.5372
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       81.65980627455065,
+       -7.537166253303546
+      ],
+      [
+       86.65980627455065,
+       -7.537166253303546
+      ],
+      [
+       86.65980627455065,
+       -2.537166253303546
+      ],
+      [
+       81.65980627455065,
+       -2.537166253303546
+      ],
+      [
+       81.65980627455065,
+       -7.537166253303546
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-03-07T05:30:00Z",
+    "platform": "EOS-06",
+    "description": "SYNTHETIC item 2 for EOS-06_OCM-GAC_Chlorophyll_8day_4km."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "EOS-06_OCM-GAC_Chlorophyll_8day_4km",
+   "id": "SYNTH_EOS-06_003",
+   "bbox": [
+    74.2964,
+    2.4334,
+    79.2964,
+    7.4334
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       74.29644827562811,
+       2.433423175027908
+      ],
+      [
+       79.29644827562811,
+       2.433423175027908
+      ],
+      [
+       79.29644827562811,
+       7.433423175027908
+      ],
+      [
+       74.29644827562811,
+       7.433423175027908
+      ],
+      [
+       74.29644827562811,
+       2.433423175027908
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-04-10T05:30:00Z",
+    "platform": "EOS-06",
+    "description": "SYNTHETIC item 3 for EOS-06_OCM-GAC_Chlorophyll_8day_4km."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "EOS-06_OCM-GAC_Chlorophyll_8day_4km",
+   "id": "SYNTH_EOS-06_004",
+   "bbox": [
+    43.7119,
+    7.2528,
+    48.7119,
+    12.2528
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       43.711931185581236,
+       7.252814928440287
+      ],
+      [
+       48.711931185581236,
+       7.252814928440287
+      ],
+      [
+       48.711931185581236,
+       12.252814928440287
+      ],
+      [
+       43.711931185581236,
+       12.252814928440287
+      ],
+      [
+       43.711931185581236,
+       7.252814928440287
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-05-13T05:30:00Z",
+    "platform": "EOS-06",
+    "description": "SYNTHETIC item 4 for EOS-06_OCM-GAC_Chlorophyll_8day_4km."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "EOS-06_OCM-GAC_Chlorophyll_8day_4km",
+   "id": "SYNTH_EOS-06_005",
+   "bbox": [
+    42.3997,
+    4.744,
+    47.3997,
+    9.744
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       42.39972214028703,
+       4.743953244521119
+      ],
+      [
+       47.39972214028703,
+       4.743953244521119
+      ],
+      [
+       47.39972214028703,
+       9.74395324452112
+      ],
+      [
+       42.39972214028703,
+       9.74395324452112
+      ],
+      [
+       42.39972214028703,
+       4.743953244521119
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-06-16T05:30:00Z",
+    "platform": "EOS-06",
+    "description": "SYNTHETIC item 5 for EOS-06_OCM-GAC_Chlorophyll_8day_4km."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "CartoSat-1_PAN_CartoDEM_30m",
+   "id": "SYNTH_CartoSat-1_001",
+   "bbox": [
+    69.6765,
+    8.2678,
+    74.6765,
+    13.2678
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       69.67653016579085,
+       8.267825333596626
+      ],
+      [
+       74.67653016579085,
+       8.267825333596626
+      ],
+      [
+       74.67653016579085,
+       13.267825333596626
+      ],
+      [
+       69.67653016579085,
+       13.267825333596626
+      ],
+      [
+       69.67653016579085,
+       8.267825333596626
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-02-04T05:30:00Z",
+    "platform": "CartoSat-1",
+    "description": "SYNTHETIC item 1 for CartoSat-1_PAN_CartoDEM_30m."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "CartoSat-1_PAN_CartoDEM_30m",
+   "id": "SYNTH_CartoSat-1_002",
+   "bbox": [
+    78.1885,
+    26.6713,
+    83.1885,
+    31.6713
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       78.18846053942033,
+       26.671303116800953
+      ],
+      [
+       83.18846053942033,
+       26.671303116800953
+      ],
+      [
+       83.18846053942033,
+       31.671303116800953
+      ],
+      [
+       78.18846053942033,
+       31.671303116800953
+      ],
+      [
+       78.18846053942033,
+       26.671303116800953
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-03-07T05:30:00Z",
+    "platform": "CartoSat-1",
+    "description": "SYNTHETIC item 2 for CartoSat-1_PAN_CartoDEM_30m."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "CartoSat-1_PAN_CartoDEM_30m",
+   "id": "SYNTH_CartoSat-1_003",
+   "bbox": [
+    70.9712,
+    11.581,
+    75.9712,
+    16.581
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       70.97124706759149,
+       11.580974115175364
+      ],
+      [
+       75.97124706759149,
+       11.580974115175364
+      ],
+      [
+       75.97124706759149,
+       16.580974115175366
+      ],
+      [
+       70.97124706759149,
+       16.580974115175366
+      ],
+      [
+       70.97124706759149,
+       11.580974115175364
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-04-10T05:30:00Z",
+    "platform": "CartoSat-1",
+    "description": "SYNTHETIC item 3 for CartoSat-1_PAN_CartoDEM_30m."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "CartoSat-1_PAN_CartoDEM_30m",
+   "id": "SYNTH_CartoSat-1_004",
+   "bbox": [
+    83.0584,
+    29.6927,
+    88.0584,
+    34.6927
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       83.05839733773414,
+       29.69272356142514
+      ],
+      [
+       88.05839733773414,
+       29.69272356142514
+      ],
+      [
+       88.05839733773414,
+       34.69272356142514
+      ],
+      [
+       83.05839733773414,
+       34.69272356142514
+      ],
+      [
+       83.05839733773414,
+       29.69272356142514
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-05-13T05:30:00Z",
+    "platform": "CartoSat-1",
+    "description": "SYNTHETIC item 4 for CartoSat-1_PAN_CartoDEM_30m."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "CartoSat-1_PAN_CartoDEM_30m",
+   "id": "SYNTH_CartoSat-1_005",
+   "bbox": [
+    81.8505,
+    15.917,
+    86.8505,
+    20.917
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       81.85047076681997,
+       15.917011866269505
+      ],
+      [
+       86.85047076681997,
+       15.917011866269505
+      ],
+      [
+       86.85047076681997,
+       20.917011866269505
+      ],
+      [
+       81.85047076681997,
+       20.917011866269505
+      ],
+      [
+       81.85047076681997,
+       15.917011866269505
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-06-16T05:30:00Z",
+    "platform": "CartoSat-1",
+    "description": "SYNTHETIC item 5 for CartoSat-1_PAN_CartoDEM_30m."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "Novasar-1_AIS",
+   "id": "SYNTH_Novasar-1_001",
+   "bbox": [
+    93.1927,
+    -3.882,
+    98.1927,
+    1.118
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       93.19267359015927,
+       -3.8820156651738493
+      ],
+      [
+       98.19267359015927,
+       -3.8820156651738493
+      ],
+      [
+       98.19267359015927,
+       1.1179843348261507
+      ],
+      [
+       93.19267359015927,
+       1.1179843348261507
+      ],
+      [
+       93.19267359015927,
+       -3.8820156651738493
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-02-04T05:30:00Z",
+    "platform": "Novasar-1",
+    "description": "SYNTHETIC item 1 for Novasar-1_AIS."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "Novasar-1_AIS",
+   "id": "SYNTH_Novasar-1_002",
+   "bbox": [
+    89.1879,
+    1.9506,
+    94.1879,
+    6.9506
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       89.1879276076551,
+       1.9506228719602303
+      ],
+      [
+       94.1879276076551,
+       1.9506228719602303
+      ],
+      [
+       94.1879276076551,
+       6.95062287196023
+      ],
+      [
+       89.1879276076551,
+       6.95062287196023
+      ],
+      [
+       89.1879276076551,
+       1.9506228719602303
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-03-07T05:30:00Z",
+    "platform": "Novasar-1",
+    "description": "SYNTHETIC item 2 for Novasar-1_AIS."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "Novasar-1_AIS",
+   "id": "SYNTH_Novasar-1_003",
+   "bbox": [
+    64.9047,
+    -2.173,
+    69.9047,
+    2.827
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       64.90467283415288,
+       -2.1729862861191593
+      ],
+      [
+       69.90467283415288,
+       -2.1729862861191593
+      ],
+      [
+       69.90467283415288,
+       2.8270137138808407
+      ],
+      [
+       64.90467283415288,
+       2.8270137138808407
+      ],
+      [
+       64.90467283415288,
+       -2.1729862861191593
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-04-10T05:30:00Z",
+    "platform": "Novasar-1",
+    "description": "SYNTHETIC item 3 for Novasar-1_AIS."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "Novasar-1_AIS",
+   "id": "SYNTH_Novasar-1_004",
+   "bbox": [
+    70.4884,
+    14.587,
+    75.4884,
+    19.587
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       70.48838201946577,
+       14.587032618880755
+      ],
+      [
+       75.48838201946577,
+       14.587032618880755
+      ],
+      [
+       75.48838201946577,
+       19.587032618880755
+      ],
+      [
+       70.48838201946577,
+       19.587032618880755
+      ],
+      [
+       70.48838201946577,
+       14.587032618880755
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-05-13T05:30:00Z",
+    "platform": "Novasar-1",
+    "description": "SYNTHETIC item 4 for Novasar-1_AIS."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "Novasar-1_AIS",
+   "id": "SYNTH_Novasar-1_005",
+   "bbox": [
+    66.1447,
+    8.9584,
+    71.1447,
+    13.9584
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       66.14469691741388,
+       8.958403927899191
+      ],
+      [
+       71.14469691741388,
+       8.958403927899191
+      ],
+      [
+       71.14469691741388,
+       13.958403927899191
+      ],
+      [
+       66.14469691741388,
+       13.958403927899191
+      ],
+      [
+       66.14469691741388,
+       8.958403927899191
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-06-16T05:30:00Z",
+    "platform": "Novasar-1",
+    "description": "SYNTHETIC item 5 for Novasar-1_AIS."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "ResourceSat-2_LISS3_L2",
+   "id": "SYNTH_ResourceSat-2_001",
+   "bbox": [
+    83.3339,
+    15.3099,
+    88.3339,
+    20.3099
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       83.33392325422841,
+       15.30993856814328
+      ],
+      [
+       88.33392325422841,
+       15.30993856814328
+      ],
+      [
+       88.33392325422841,
+       20.30993856814328
+      ],
+      [
+       83.33392325422841,
+       20.30993856814328
+      ],
+      [
+       83.33392325422841,
+       15.30993856814328
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-02-04T05:30:00Z",
+    "platform": "ResourceSat-2",
+    "description": "SYNTHETIC item 1 for ResourceSat-2_LISS3_L2."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "ResourceSat-2_LISS3_L2",
+   "id": "SYNTH_ResourceSat-2_002",
+   "bbox": [
+    81.1459,
+    7.5697,
+    86.1459,
+    12.5697
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       81.14586717702939,
+       7.569724374333079
+      ],
+      [
+       86.14586717702939,
+       7.569724374333079
+      ],
+      [
+       86.14586717702939,
+       12.569724374333079
+      ],
+      [
+       81.14586717702939,
+       12.569724374333079
+      ],
+      [
+       81.14586717702939,
+       7.569724374333079
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-03-07T05:30:00Z",
+    "platform": "ResourceSat-2",
+    "description": "SYNTHETIC item 2 for ResourceSat-2_LISS3_L2."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "ResourceSat-2_LISS3_L2",
+   "id": "SYNTH_ResourceSat-2_003",
+   "bbox": [
+    69.4304,
+    11.149,
+    74.4304,
+    16.149
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       69.43042807918958,
+       11.148967820483163
+      ],
+      [
+       74.43042807918958,
+       11.148967820483163
+      ],
+      [
+       74.43042807918958,
+       16.148967820483165
+      ],
+      [
+       69.43042807918958,
+       16.148967820483165
+      ],
+      [
+       69.43042807918958,
+       11.148967820483163
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-04-10T05:30:00Z",
+    "platform": "ResourceSat-2",
+    "description": "SYNTHETIC item 3 for ResourceSat-2_LISS3_L2."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "ResourceSat-2_LISS3_L2",
+   "id": "SYNTH_ResourceSat-2_004",
+   "bbox": [
+    84.3296,
+    16.6898,
+    89.3296,
+    21.6898
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       84.32959935636286,
+       16.689807641735072
+      ],
+      [
+       89.32959935636286,
+       16.689807641735072
+      ],
+      [
+       89.32959935636286,
+       21.689807641735072
+      ],
+      [
+       84.32959935636286,
+       21.689807641735072
+      ],
+      [
+       84.32959935636286,
+       16.689807641735072
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-05-13T05:30:00Z",
+    "platform": "ResourceSat-2",
+    "description": "SYNTHETIC item 4 for ResourceSat-2_LISS3_L2."
+   },
+   "links": [],
+   "assets": {}
+  },
+  {
+   "type": "Feature",
+   "stac_version": "1.0.0",
+   "collection": "ResourceSat-2_LISS3_L2",
+   "id": "SYNTH_ResourceSat-2_005",
+   "bbox": [
+    75.5395,
+    20.639,
+    80.5395,
+    25.639
+   ],
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       75.53953208904299,
+       20.63904658769097
+      ],
+      [
+       80.53953208904299,
+       20.63904658769097
+      ],
+      [
+       80.53953208904299,
+       25.63904658769097
+      ],
+      [
+       75.53953208904299,
+       25.63904658769097
+      ],
+      [
+       75.53953208904299,
+       20.63904658769097
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "datetime": "2023-06-16T05:30:00Z",
+    "platform": "ResourceSat-2",
+    "description": "SYNTHETIC item 5 for ResourceSat-2_LISS3_L2."
+   },
+   "links": [],
+   "assets": {}
+  }
+ ]
+}

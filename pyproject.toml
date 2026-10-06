@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stac2csw"
+version = "0.1.0"
+description = "OGC CSW 2.0.2 facade for STAC catalogues, demonstrated on ISRO Bhoonidhi"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["requests>=2.31", "lxml>=5.0"]
+
+[project.optional-dependencies]
+server = ["pycsw==2.6.2", "OWSLib<0.29", "sqlalchemy<2", "pyproj", "Shapely", "geolinks", "xmltodict", "gunicorn"]
+dev = ["pytest"]
+
+[project.scripts]
+stac2csw = "stac2csw.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
