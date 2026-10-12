@@ -101,7 +101,7 @@ Supported filters, all verified by tests: free text (`csw:AnyText LIKE`), spatia
 ## 4. Quick start
 
 ```bash
-git clone https://github.com/UjjwalGuptafullStack/stac2csw && cd stac2csw
+git clone https://github.com/ujjuNotGujju/stac2csw && cd stac2csw
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[server,dev]"
 ```
