@@ -7,6 +7,48 @@ in one read.
 
 ---
 
+## 0. The problem, what we built, and why it's defensible
+
+**What the problem asked:** explore a real ISRO/NRSC platform (Bhoonidhi), find one function
+that genuinely lacks a standard OGC service interface — not "could be nicer," but actually
+missing and verified to be missing — then build and deploy a real implementation of that
+missing interface using a standard framework, and demonstrate it live over HTTP.
+
+**What we built:** Bhoonidhi has satellite/DEM/ocean-colour holdings discoverable only through
+a proprietary, login-gated STAC API. That's a *catalogue function* with no CSW interface —
+exactly the "metadata catalogue function that could be exposed as a CSW" option the brief lists.
+`stac2csw` harvests that STAC catalogue, maps every collection and item to an ISO 19115/19139
+record (the encoding SDI tooling expects), and serves the result through **pycsw**, a real OGC
+CSW 2.0.2 reference implementation, running live and answering real HTTP requests.
+
+**Why this is the defensible choice, not just *a* choice:**
+- **The gap is proven, not asserted.** `scripts/probe_gap.py` sent live `GetCapabilities`
+  requests to both Bhoonidhi hosts across every conventional CSW/WMS/WFS/WCS/WPS path, found
+  none, and the detector itself was validated with a positive control before trusting the
+  negative result (§2 below, `docs/gap-evidence.md`). This directly answers the brief's own
+  instruction: "your chosen gap must be real — verify that the service does not already exist."
+- **It's the one gap category the brief names explicitly that fits Bhoonidhi's actual shape.**
+  Bhoonidhi's data is bulk earth-observation imagery you download whole, not a sensor stream
+  (ruling out SensorThings/SOS) and not something requiring server-side computation like slope
+  or NDVI (ruling out WPS) — it is fundamentally *metadata about files*, which is precisely
+  what a catalogue service is for.
+- **The implementation is complete, not partial.** All required CSW 2.0.2 operations work
+  against a real, currently-running endpoint — not mocked, not "should work": `GetCapabilities`,
+  `DescribeRecord`, `GetRecords` (keyword + bbox + combined filters, paging), `GetRecordById`.
+  Verified three independent ways: 29 automated tests (including an independent Shapely
+  cross-check of bbox results), `scripts/smoke_test.py` against the live server, and manual
+  harvest-and-inspect runs against the real Bhoonidhi API with real credentials (§6a).
+- **It uses the field's own reference implementation, not a reinvention.** pycsw is OGC's
+  reference CSW server; building effort went into the genuinely novel part — the STAC→ISO
+  19139 mapping — rather than re-proving that CSW's wire protocol can be implemented at all.
+- **A real-data bug was found and fixed during verification**, not just claimed to be tested:
+  Bhoonidhi's own `bbox` field order disagreed with STAC's standard, confirmed by cross-checking
+  against the item's geometry, and fixed with a regression test pinned to the real values (§3,
+  §6a). That's stronger evidence of correctness than any amount of synthetic-data testing alone
+  could provide — see `docs/TECHNICAL_DISCUSSION.md` for the full decision-by-decision rationale.
+
+---
+
 ## 1. The assignment, restated
 
 The brief (CyberGIS mid-sem, Step 1–4) asks for four things:
