@@ -9,6 +9,7 @@ Credentials are read from BHOONIDHI_USER / BHOONIDHI_PASSWORD (never from argv).
 from __future__ import annotations
 
 import argparse
+import configparser
 import logging
 import os
 import re
@@ -16,6 +17,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from . import iso19139
 from .client import DEFAULT_BASE_URL, BhoonidhiClient, FixtureClient
@@ -81,12 +83,33 @@ def _admin(*args: str) -> None:
     exe = shutil.which("pycsw-admin.py") or shutil.which("pycsw-admin")
     if not exe:
         sys.exit("pycsw-admin.py not found. Install with: pip install 'stac2csw[server]'")
-    subprocess.run([exe, *args], check=True)
+    # pycsw-admin.py prints "ERROR: ..." on failure but still exits 0 (observed with
+    # setup_db against an already-initialised database), so check=True alone does not
+    # catch it; treat an "ERROR:" line in its output as a real failure too.
+    r = subprocess.run([exe, *args], capture_output=True, text=True)
+    out = r.stdout + r.stderr
+    print(out, end="")
+    if r.returncode != 0 or "\nERROR:" in ("\n" + out):
+        sys.exit(f"pycsw-admin.py {' '.join(args)} failed")
+
+
+def _sqlite_path(cfg: str) -> Path | None:
+    """The on-disk path of the repository database, if it's SQLite."""
+    p = configparser.ConfigParser()
+    p.read(cfg)
+    url = p.get("repository", "database", fallback="")
+    if not url.startswith("sqlite:"):
+        return None
+    path = urlsplit(url).path  # 'sqlite:///data/records.db' -> '/data/records.db'
+    return Path((os.environ.get("PYCSW_ROOT") or ".")) / path.lstrip("/")
 
 
 def cmd_load(a: argparse.Namespace) -> int:
     cfg = str(a.config)
     if a.reset:
+        db = _sqlite_path(cfg)
+        if db and db.exists():
+            db.unlink()  # pycsw-admin's setup_db does not drop existing tables
         _admin("-c", "setup_db", "-f", cfg)
     _admin("-c", "load_records", "-f", cfg, "-p", str(a.records), "-r", "-y")
     return 0
