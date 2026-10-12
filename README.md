@@ -31,8 +31,11 @@ script) · [`docs/gap-evidence.md`](docs/gap-evidence.md) (the gap, verified aga
 
 * `scripts/probe_gap.py` sends `GetCapabilities` for CSW, WMS, WFS, WCS and WPS to a list of likely paths on
   both Bhoonidhi hosts. A host counts as a service **only** if the body is a real capabilities document, so a
-  200 response carrying a catch-all HTML page is correctly recorded as "no". The script writes
-  `docs/gap-evidence.md`; run it yourself and commit the output; this README makes no claim about what it will show.
+  200 response carrying a catch-all HTML page is correctly recorded as "no". **This was run against the live
+  Bhoonidhi hosts** (not just written and left unrun) — see the committed, timestamped result in
+  [`docs/gap-evidence.md`](docs/gap-evidence.md): no real OGC capabilities document was returned by either host
+  at any of the 10 probed paths, across all 5 service types. Re-run it yourself any time with
+  `python scripts/probe_gap.py` to reproduce this independently.
 * The detector was validated with a positive control: pointed at this repository's own CSW it reports
   `YES` for CSW and `no` for the other four services.
 * The API specification (https://bhoonidhi.nrsc.gov.in/bhoonidhi-api/) was read in full for this project.
