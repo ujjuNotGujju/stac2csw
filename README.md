@@ -213,11 +213,14 @@ pytest -q        # 28 tests
 
 * **Verified against the live Bhoonidhi API** (§4B) with real credentials: `collections()` and `search()`
   both work end-to-end against production. One real bug was found this way and fixed — see the bbox note
-  in §7. Temporal mapping (`properties.datetime`) was confirmed correct on a real item. Not exhaustively
-  checked: the full 62-collection catalogue was not harvested in full, only a handful of items across two
-  collections (`CartoSat-1_PAN_CartoDEM_30m`, `EOS-06_OCM-GAC_L2C-CHL`), so further field-naming surprises
-  in collections not yet sampled are possible — the mapper reads optional fields defensively, so the
-  failure mode for an unseen quirk is a thinner record, not a crash.
+  in §7. 84 real records (4 collections, 80 items) across `CartoSat-1_PAN_CartoDEM_30m`,
+  `EOS-06_OCM-GAC_L2C-CHL`, `Sentinel-1A_SAR-IW_GRD` and `ResourceSat-2_LISS3_L2` were harvested, loaded,
+  and served; all CSW operations pass against this real data (`scripts/smoke_test.py`, 7/7). Temporal
+  mapping was confirmed correct on a real item with a real date (`EOS-06_OCM-GAC_L2C-CHL`), and correctly
+  *absent* on a real item with no date at all (CartoDEM, a static elevation product — proof the mapper
+  omits rather than invents). Not exhaustively checked: only 4 of the real catalogue's 62 collections were
+  sampled, so further field-naming surprises in the other 58 are possible — the mapper reads optional
+  fields defensively, so the failure mode for an unseen quirk is a thinner record, not a crash.
 * **Demo data in the repository is synthetic** (`tests/fixtures`, ids prefixed `SYNTH_`, titles say so).
   Collection ids are real; everything else is invented. Never mistake it for Bhoonidhi holdings.
 * **Not a full mirror.** Bhoonidhi holds a very large number of items. The default harvests up to 100 items per
