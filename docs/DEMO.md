@@ -20,7 +20,7 @@ tab ready.
 Sanity-check the server is actually up before anyone's watching:
 
 ```bash
-python scripts/smoke_test.py http://127.0.0.1:8000/csw
+python3 scripts/smoke_test.py http://127.0.0.1:8000/csw
 ```
 
 `7/7 checks passed` means you're ready. If anything fails here, fix it before the demo starts —
@@ -95,7 +95,7 @@ canvas. Click one to show the full metadata panel.
 ### 5. Close with the smoke test (≈30 seconds)
 
 ```bash
-python scripts/smoke_test.py http://127.0.0.1:8000/csw
+python3 scripts/smoke_test.py http://127.0.0.1:8000/csw
 ```
 
 `7/7 checks passed` as your closing line — it compresses "every required operation works,

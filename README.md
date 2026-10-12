@@ -35,7 +35,7 @@ script) · [`docs/gap-evidence.md`](docs/gap-evidence.md) (the gap, verified aga
   Bhoonidhi hosts** (not just written and left unrun) — see the committed, timestamped result in
   [`docs/gap-evidence.md`](docs/gap-evidence.md): no real OGC capabilities document was returned by either host
   at any of the 10 probed paths, across all 5 service types. Re-run it yourself any time with
-  `python scripts/probe_gap.py` to reproduce this independently.
+  `python3 scripts/probe_gap.py` to reproduce this independently.
 * The detector was validated with a positive control: pointed at this repository's own CSW it reports
   `YES` for CSW and `no` for the other four services.
 * The API specification (https://bhoonidhi.nrsc.gov.in/bhoonidhi-api/) was read in full for this project.
@@ -110,18 +110,18 @@ Supported filters, all verified by tests: free text (`csw:AnyText LIKE`), spatia
 
 ```bash
 git clone https://github.com/ujjuNotGujju/stac2csw && cd stac2csw
-python -m venv .venv && source .venv/bin/activate
+python3.12 -m venv .venv && source .venv/bin/activate   # 3.10-3.12 only: sqlalchemy<2 + pycsw 2.6.2 don't support 3.13+
 pip install -e ".[server,dev]"
 ```
 
 **A. Offline demo (no credentials; synthetic data):**
 
 ```bash
-python tests/make_fixtures.py                                  # already committed; regenerates
+python3 tests/make_fixtures.py                                 # already committed; regenerates
 stac2csw harvest --offline tests/fixtures --out records --clean
 stac2csw load --config config/pycsw.cfg --records records --reset
 scripts/run_local.sh                                           # http://127.0.0.1:8000/csw
-python scripts/smoke_test.py http://127.0.0.1:8000/csw
+python3 scripts/smoke_test.py http://127.0.0.1:8000/csw
 ```
 
 **B. Live Bhoonidhi (needs a Bhoonidhi account):**
@@ -134,7 +134,7 @@ stac2csw harvest --out records --clean \
   --collections EOS-06_OCM-GAC_L2C-CHL --datetime 2024-01-01T00:00:00Z/2024-12-31T23:59:59Z
 stac2csw load --config config/pycsw.cfg --records records --reset
 scripts/run_local.sh
-python scripts/probe_gap.py                                    # regenerates docs/gap-evidence.md
+python3 scripts/probe_gap.py                                   # regenerates docs/gap-evidence.md
 ```
 
 **C. Docker (untested in the author's environment, see Limitations):**
