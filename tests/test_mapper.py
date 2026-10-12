@@ -44,6 +44,16 @@ def test_six_value_bbox_is_reduced_to_2d():
     assert iso.bbox_of({"bbox": [1, 2, 0, 5, 9, 100]}) == [1, 2, 5, 9]
 
 
+def test_bbox_with_south_and_north_swapped_is_normalised():
+    # Observed on a live Bhoonidhi item (EOS-06_OCM-GAC_L2C-CHL, 2026-10-11):
+    # the provider's own bbox field carries [west, north, east, south], the
+    # opposite of the STAC-standard [west, south, east, north]. Confirmed by
+    # comparing against the item's own geometry, whose min/max latitude
+    # contradicted the bbox field's positional order.
+    bb = [-134.194354, 8.082571, -117.484377, -7.675314]
+    assert iso.bbox_of({"bbox": bb}) == [-134.194354, -7.675314, -117.484377, 8.082571]
+
+
 def test_missing_fields_are_omitted_not_invented():
     it = {"id": "bare", "collection": "c", "properties": {}}
     r = parse(iso.item_record(it, None, "https://api.example"))

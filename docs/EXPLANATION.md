@@ -286,13 +286,35 @@ test suite.
 
 ---
 
+## 6a. What live verification against the real API found
+
+Section 4B was run for real afterward, with real Bhoonidhi credentials, against `CartoSat-1_PAN_CartoDEM_30m`
+(a static DEM product) and `EOS-06_OCM-GAC_L2C-CHL` (a dated ocean-colour product). Two things worth knowing:
+
+- **`collections()` and `search()` both work end-to-end against production**, including real paging and
+  real auth — the client built from the spec alone needed no changes to talk to the real server.
+- **One real bug surfaced and was fixed.** `GET /data/collections` confirmed the actual catalogue uses
+  real ids like `EOS-06_OCM-GAC_L2C-CHL`, not the invented `EOS-06_OCM-GAC_Chlorophyll_8day_4km` the README
+  had used as an example (now corrected). More importantly, a real item's own `bbox` field turned out to
+  carry `[west, north, east, south]` — the opposite of the STAC-standard `[west, south, east, north]`.
+  This was only caught because the item's `geometry` field *disagreed* with its `bbox` field's apparent
+  latitude order: cross-checking one against the other is what exposed it, not inspection of either field
+  alone. `bbox_of()` and `_collection_bbox()` in `iso19139.py` now resolve south/north by `min`/`max` rather
+  than trusting bbox field position — had this gone unfixed, any item with this shape would have written an
+  inverted `EX_GeographicBoundingBox` into its ISO record, silently breaking CSW `BBOX` spatial queries for
+  that record. A regression test (`test_bbox_with_south_and_north_swapped_is_normalised` in
+  `tests/test_mapper.py`) pins the exact real-world values that exposed it.
+- **Temporal mapping (`properties.datetime`) was confirmed correct** on the chlorophyll item — the earlier
+  DEM item's missing dates were a real property of that product (a static elevation layer), not a mapper gap.
+- **Not exhaustively checked**: only a handful of items across two of the catalogue's 62 collections were
+  sampled. Harvesting more broadly before a demo is still worthwhile — the lesson from the bbox bug is that
+  Bhoonidhi's real field conventions sometimes diverge from the documented STAC spec in ways only live data
+  reveals, and the mapper's "read optional fields defensively" design means an unseen quirk degrades to a
+  thinner record rather than a crash — but it won't necessarily surface itself the way the bbox swap did,
+  which needed an independent check (geometry vs. bbox) to catch.
+
 ## 6. What's still unverified (be honest about this in the demo)
 
-- **Never run against the live Bhoonidhi API** from this environment — no credentials, no
-  network path to it available at build time. The client was written strictly from the
-  published API spec and tested against a mock of that spec; item property names beyond the
-  STAC core (`id`, `geometry`/`bbox`, `properties.datetime`, `collection`, `links`) are
-  untested. Run `stac2csw harvest` for real and eyeball a few records before trusting them.
 - **Demo data is synthetic.** `tests/fixtures/*.json` use real Bhoonidhi collection ids but
   invented titles/descriptions/geometries, labelled `SYNTH_`/`SYNTHETIC` throughout so they're
   never mistaken for real holdings.

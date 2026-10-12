@@ -102,10 +102,20 @@ def _coords(obj):
 
 
 def bbox_of(item: dict) -> list[float] | None:
-    """[west, south, east, north] from item.bbox, else from item.geometry."""
+    """[west, south, east, north] from item.bbox, else from item.geometry.
+
+    Bhoonidhi's own `bbox` field has been observed to carry latitude as
+    [west, north, east, south] rather than the STAC-standard
+    [west, south, east, north] (confirmed against a live item where
+    geometry-derived min/max latitude contradicted the bbox field's order).
+    south/north are therefore always resolved by min/max rather than trusted
+    positionally, so an inverted record never reaches pycsw's BBOX index.
+    """
     bb = item.get("bbox")
     if bb and len(bb) in (4, 6):
-        return [bb[0], bb[1], bb[3], bb[4]] if len(bb) == 6 else list(bb)
+        west, lat_a, east, lat_b = (bb[0], bb[1], bb[3], bb[4]) if len(bb) == 6 else bb
+        south, north = min(lat_a, lat_b), max(lat_a, lat_b)
+        return [west, south, east, north]
     geom = item.get("geometry")
     if geom and geom.get("coordinates"):
         pts = list(_coords(geom["coordinates"]))
@@ -118,7 +128,9 @@ def bbox_of(item: dict) -> list[float] | None:
 def _collection_bbox(coll: dict) -> list[float] | None:
     try:
         bb = coll["extent"]["spatial"]["bbox"][0]
-        return [bb[0], bb[1], bb[3], bb[4]] if len(bb) == 6 else list(bb)
+        west, lat_a, east, lat_b = (bb[0], bb[1], bb[3], bb[4]) if len(bb) == 6 else bb
+        south, north = min(lat_a, lat_b), max(lat_a, lat_b)
+        return [west, south, east, north]
     except (KeyError, IndexError, TypeError):
         return None
 

@@ -123,7 +123,7 @@ export BHOONIDHI_USER=...  BHOONIDHI_PASSWORD=...             # never passed on 
 stac2csw harvest --out records --clean --max-items 100         # all collections, 100 items each
 # narrower, e.g. one collection and one year:
 stac2csw harvest --out records --clean \
-  --collections EOS-06_OCM-GAC_Chlorophyll_8day_4km --datetime 2024-01-01T00:00:00Z/2024-12-31T23:59:59Z
+  --collections EOS-06_OCM-GAC_L2C-CHL --datetime 2024-01-01T00:00:00Z/2024-12-31T23:59:59Z
 stac2csw load --config config/pycsw.cfg --records records --reset
 scripts/run_local.sh
 python scripts/probe_gap.py                                    # regenerates docs/gap-evidence.md
@@ -194,13 +194,22 @@ pytest -q        # 28 tests
 * **`gzip_compresslevel` is deliberately unset.** In pycsw 2.6.2 the WSGI wrapper sends the *uncompressed*
   `Content-Length` with a gzip body, which breaks OWSLib/QGIS ("IncompleteRead"). Found and fixed during testing.
 * **Rate limits respected by construction:** one login, refresh-token renewal, 0.4 s between calls.
+* **`bbox_of()` normalises south/north by `min`/`max`, never trusts field position for latitude.**
+  A live Bhoonidhi item (`EOS-06_OCM-GAC_L2C-CHL`) was found with its own `bbox` field carrying
+  `[west, north, east, south]` — the opposite of the STAC-standard `[west, south, east, north]` — confirmed
+  by cross-checking against that item's `geometry`. Trusting field position would have written an inverted
+  `EX_GeographicBoundingBox` (`south > north`) into the ISO record, silently breaking CSW `BBOX` spatial
+  queries for that item. Fixed and covered by a regression test using the real observed values.
 
 ## 8. Known limitations
 
-* **Not yet run against the live Bhoonidhi API.** The client follows the
-  published specification, and is tested against a mock of it, but real item property names beyond core STAC
-  (`id`, `geometry`/`bbox`, `properties.datetime`, `collection`, `links`) were not observed. The mapper reads
-  optional fields defensively. **Run section 4B and inspect a few records before relying on them.**
+* **Verified against the live Bhoonidhi API** (§4B) with real credentials: `collections()` and `search()`
+  both work end-to-end against production. One real bug was found this way and fixed — see the bbox note
+  in §7. Temporal mapping (`properties.datetime`) was confirmed correct on a real item. Not exhaustively
+  checked: the full 62-collection catalogue was not harvested in full, only a handful of items across two
+  collections (`CartoSat-1_PAN_CartoDEM_30m`, `EOS-06_OCM-GAC_L2C-CHL`), so further field-naming surprises
+  in collections not yet sampled are possible — the mapper reads optional fields defensively, so the
+  failure mode for an unseen quirk is a thinner record, not a crash.
 * **Demo data in the repository is synthetic** (`tests/fixtures`, ids prefixed `SYNTH_`, titles say so).
   Collection ids are real; everything else is invented. Never mistake it for Bhoonidhi holdings.
 * **Not a full mirror.** Bhoonidhi holds a very large number of items. The default harvests up to 100 items per
