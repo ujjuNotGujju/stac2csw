@@ -11,6 +11,11 @@ Bhoonidhi data with no STAC-specific code.
 > **Unofficial.** Student project. Not affiliated with, or endorsed by, NRSC/ISRO. Only *metadata* is
 > copied; data products stay on Bhoonidhi and still need a Bhoonidhi account to download.
 
+**Further reading:** [`docs/EXPLANATION.md`](docs/EXPLANATION.md) (the project end to end, with
+the reasoning behind it) · [`docs/TECHNICAL_DISCUSSION.md`](docs/TECHNICAL_DISCUSSION.md) (every
+technical decision, alternatives considered, and why) · [`docs/DEMO.md`](docs/DEMO.md) (live demo
+script) · [`docs/gap-evidence.md`](docs/gap-evidence.md) (the gap, verified against the live API).
+
 ---
 
 ## 1. Gap identified
