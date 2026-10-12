@@ -266,7 +266,8 @@ README and `config/pycsw.cfg` so it doesn't get "optimised" back in later.
 
 ## 4. How this was tested, and what each test layer actually proves
 
-28 tests total, three files, no network access required for any of them:
+29 tests total, three files, no network access required for any of them (one of the 29 is a
+regression test pinned to a real bug found during live verification — see §6a):
 
 - **`tests/test_mapper.py`** — pure unit tests of `iso19139.py`: correct ISO element structure
   and order, bbox-from-`bbox`-field vs bbox-derived-from-`geometry`, the 6-value-bbox case

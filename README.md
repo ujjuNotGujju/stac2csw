@@ -179,7 +179,7 @@ Note the EPSG:4326 axis order: with the `urn:ogc:def:crs:EPSG::4326` CRS a bbox 
 ## 6. Tests
 
 ```bash
-pytest -q        # 28 tests
+pytest -q        # 29 tests
 ```
 
 | File | What it proves |
@@ -249,7 +249,11 @@ scripts/run_local.sh        run the CSW endpoint
 scripts/smoke_test.py       live check of every operation
 scripts/probe_gap.py        gap evidence generator
 scripts/demo_requests.sh    curl examples
-tests/                      28 tests + synthetic fixtures
+tests/                      29 tests + synthetic fixtures
+docs/EXPLANATION.md         the project end to end, with the reasoning behind it
+docs/TECHNICAL_DISCUSSION.md  every technical decision, alternatives considered, and why
+docs/DEMO.md                live demo script
+docs/gap-evidence.md        the gap, verified against the live API
 Dockerfile, docker-compose.yml, .github/workflows/ci.yml
 ```
 
